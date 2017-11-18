@@ -1,0 +1,874 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroyextrabold.woff2") format("woff2"), url("../fonts/gilroyextrabold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroylight.woff2") format("woff2"), url("../fonts/gilroylight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open sans";
+  src: url("../fonts/opensans.woff2") format("woff2"), url("../fonts/opensans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open sans";
+  src: url("../fonts/opensanslight.woff2") format("woff2"), url("../fonts/opensanslight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+.page {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Open sans", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 30px;
+  color: rgb(0, 0, 0);
+
+  background-color: #fff;
+}
+/*Класс убирающий подчеркивание и добавляющий цвет для ссылок*/
+.link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.link:focus,
+.input:focus {
+  outline: none;
+}
+/*Класс для добавления шрифта заголовкам*/
+.headline {
+  font-size: 47px;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 700;
+  line-height: normal;
+}
+/*Класс в основном используется для интерактивных элементов(ссылки, кнопки)*/
+.font {
+  font-size: 18px;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+/*Класс для задания основному тексту цвета*/
+.desc {
+  color: rgb(70, 70, 70);
+}
+/*Класс для оформления и поведения кнопок*/
+.btn {
+  position: relative;
+
+  width: 220px;
+  display: inline-block;
+  padding: 9px 0;
+
+  text-align: center;
+  vertical-align: middle;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  background-color: rgb(240, 197, 46);
+  transform: scaleY(0.13);
+}
+.btn:hover::before,
+.btn:focus::before {
+  transform: scaleY(1);
+}
+.btn:active,
+.btn:active::before {
+  color: rgba(0, 0, 0, 0.3);
+
+  transform: scaleY(1);
+}
+/*Начало хедера*/
+.page-header {
+  line-height: 36px;
+
+  background-color: rgba(240, 197, 46, 0.5);
+}
+/*Изменение цвета логотипа в футере*/
+.logo--yellow {
+  fill: rgb(255, 198, 0);
+}
+.logo:hover,
+.logo:focus {
+  opacity: 0.6;
+}
+.logo:active {
+  opacity: 0.3;
+}
+/*Чтобы разместить иконку поиска*/
+.page-header__form-paragraph {
+  position: relative;
+}
+/*задание цвета, и поведение подписи для поля поиска*/
+.page-header__form-input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+.page-header__form-input:hover::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.page-header__form-input:focus::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 1);
+}
+.page-header__form-input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+.page-header__form-input:hover::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.page-header__form-input:focus::-moz-placeholder {
+  color: rgba(0, 0, 0, 1);
+  opacity: 1;
+}
+/*Иконка для поиска*/
+.page-header__form-label {
+  position: absolute;
+  top: 13px;
+  left: 0;
+
+  width: 16px;
+  height: 16px;
+  display: block;
+
+  background-color: transparent;
+  background-image: url("../img/search-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*Поле поиска*/
+.page-header__form-input {
+  padding-left: 40px;
+
+  font: inherit;
+  color: rgb(0, 0, 0);
+
+  background-color: transparent;
+  border: none;
+}
+.page-header__form-input:focus {
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+.page-header__form-input:focus ~ .page-header__form-submit {
+  opacity: 1;
+}
+/*Кнопка отправки поискового запроса*/
+.page-header__form-submit {
+  font: inherit;
+  color: rgb(0, 0, 0);
+
+  background-color: transparent;
+  border: 2px solid rgb(0, 0, 0);
+  opacity: 0;
+}
+.page-header__form-submit:hover {
+  color: rgb(255, 255, 255);
+
+  background-color: rgb(0, 0, 0);
+}
+.page-header__form-submit:focus {
+  color: rgb(255, 255, 255);
+
+  background-color: rgb(0, 0, 0);
+  opacity: 1;
+}
+.page-header__form-submit:active {
+  color: rgba(255, 255, 255, 0.3);
+
+  background-color: rgb(0, 0, 0);
+}
+/*Навигация (ВХОД и ПОДМЕНЮ)*/
+.user-nav,
+.sub-nav {
+  list-style: none;
+}
+/*Основная навигация*/
+.page-nav__link {
+  position: relative;
+}
+/*Иконка для ссылки каталог товаров*/
+.page-nav__link::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -26px;
+
+  width: 16px;
+  height: 16px;
+  display: block;
+
+  background-color: transparent;
+  background-image: url("../img/plus-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
+/*Фон для ПОДМЕНЮ*/
+.sub-nav {
+  background-color: rgb(247, 226, 150);
+}
+/*Для установки иконок для (ВХОД, СРАВНИТЬ, КОРЗИНА)*/
+.top-nav__link,
+.bottom-nav__link {
+  position: relative;
+}
+.top-nav__link::before,
+.bottom-nav__link::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -25px;
+
+  width: 13px;
+  height: 12px;
+  display: block;
+
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.user-nav__link::before {
+  background-image: url("../img/user-icon.svg");
+}
+.compare-link::before {
+  background-image: url("../img/compare-icon.svg");
+}
+.basket-link::before {
+  background-image: url("../img/cart-icon.svg");
+}
+/*Поведение иконок при наведении, фокусе и нажатии*/
+.top-nav__link:hover::before,
+.top-nav__link:focus::before,
+.bottom-nav__link:hover::before,
+.bottom-nav__link:focus::before {
+  opacity: 0.6;
+}
+.top-nav__link:active::before,
+.bottom-nav__link:active::before {
+  opacity: 0.3;
+}
+/*Поведение текста меню (ВХОД, СРАВНИТЬ, КОРЗИНА, ПОДМЕНЮ и СЕРВИС МЕНЮ 'Доставка, Гарантия, Контакты')*/
+.top-nav__link:hover,
+.top-nav__link:focus,
+.sub-nav__link:hover,
+.sub-nav__link:focus,
+.page-nav__link:hover,
+.page-nav__link:focus,
+.top-service__link:hover,
+.top-service__link:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+.top-nav__link:active,
+.sub-nav__link:active,
+.page-nav__link:active,
+.top-service__link:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.service-nav {
+  list-style: none;
+}
+/*Задает иконку для управляющих кнопок слайдера*/
+.hit-product__control {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+
+  background-color: transparent;
+  background-image: url("../img/slider-button.svg");
+  background-position: 0 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+/*Поведение кнопок слайдера*/
+.radio-first:checked ~ .radio-1,
+.radio-second:checked ~ .radio-2,
+.radio-third:checked ~ .radio-3,
+.hit-product__control:hover {
+  background-image: url("../img/slider-button-active.svg");
+}
+.hit-product__slider-list {
+  list-style: none;
+}
+.slide-table {
+  text-align: center;
+}
+.slide-table__head-cell {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  color: rgb(70, 70, 70);
+}
+.slide-table__cell {
+  font-size: 36px;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
+  line-height: normal;
+}
+.hit-product__slide-num {
+  font-size: 179px;
+  color: rgb(255, 255, 255);
+
+  background-color: rgb(240, 197, 46);
+}
+/*Меню популярных разделов*/
+.popular-nav__list {
+  margin-top: 200px;/*Оставлен для наглядности, будет убран*/
+
+  list-style: none;
+}
+.popular-nav__item {
+  width: 160px;/*Оставлен для наглядности, будет убран*/
+  height: 300px;/*Оставлен для наглядности, будет убран*/
+}
+.popular-nav__link {
+  position: relative;
+
+  width: 160px;
+  height: 78px;
+  display: block;
+
+  text-transform: none;
+  letter-spacing: normal;
+}
+/*Общее правило для иконок популярного меню*/
+.popular-nav__link::before,
+.popular-nav__link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 160px;
+  height: 160px;
+  display: block;
+  margin-top: -198px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*Цвет задан отдельно, т.к. при анимации нужно либо делать прозрачным фон, либо само изображение*/
+.popular-nav__link::before {
+  background-color: rgba(240, 197, 46, 0.5);
+}
+/*Изображения для популярного меню*/
+.popular-nav__item:nth-child(1) .popular-nav__link::after {
+  background-image: url("../img/popular-1.svg");
+}
+.popular-nav__item:nth-child(2) .popular-nav__link::after {
+  background-image: url("../img/popular-2.svg");
+}
+.popular-nav__item:nth-child(3) .popular-nav__link::after {
+  background-image: url("../img/popular-3.svg");
+}
+.popular-nav__item:nth-child(4) .popular-nav__link::after {
+  background-image: url("../img/popular-4.svg");
+}
+.popular-nav__item:nth-child(5) .popular-nav__link::after {
+  background-image: url("../img/popular-5.svg");
+}
+.popular-nav__item:nth-child(6) .popular-nav__link::after {
+  background-image: url("../img/popular-6.svg");
+}
+/*Поведение текста популярного меню, фона для before и изображения для after*/
+.popular-nav__link:hover,
+.popular-nav__link:focus {
+  color: rgb(0, 0, 0);
+}
+.popular-nav__link:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+.popular-nav__link:hover::before,
+.popular-nav__link:focus::before {
+  background-color: rgb(240, 197, 46);
+}
+.popular-nav__link:active::after {
+  opacity: 0.3;
+}
+/*Таб меню*/
+.tab-service__control {
+  width: 160px;/*Переопределена ширина кнопок для btn*/
+}
+.tab-first:checked ~ .tab-1,
+.tab-second:checked ~ .tab-2,
+.tab-third:checked ~ .tab-3 {
+  width: 278px;
+  display: block;
+  padding-left: 24px;
+
+  text-align: left;
+  color: rgb(247, 225, 132);
+
+  background-color: rgb(0, 0, 0);
+}
+/*Переопределяет фон указанный в классе btn*/
+.tab-service__control:active::before {
+  background-color: transparent;
+}
+.tab-service__form-list {
+  list-style: none;
+}
+/*Ссылки на партнеров*/
+.partners__link {
+  width: 260px;
+  height: 100px;
+  display: block;
+
+  background-color: rgb(255, 255, 255);
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  opacity: 0.2;
+}
+.partners__name:nth-of-type(1) .partners__link {
+  background-image: url("../img/partner-logo-1.jpg");
+}
+.partners__name:nth-of-type(2) .partners__link {
+  background-image: url("../img/partner-logo-2.jpg");
+}
+.partners__name:nth-of-type(3) .partners__link {
+  background-image: url("../img/partner-logo-3.jpg");
+}
+.partners__name:nth-of-type(4) .partners__link {
+  background-image: url("../img/partner-logo-4.jpg");
+}
+.partners__link:hover,
+.partners__link:focus {
+  filter: none;
+  opacity: 1;
+}
+/*Блок о нас*/
+.about-us__item {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 700;
+
+  list-style-type: circle;
+}
+/*Переопределена ширина для кнопок btn*/
+.about-us__more {
+  width: 260px;
+}
+
+.contacts__link {
+  width: 260px;
+}
+/*Меню хлебных крошек*/
+.breadcrumbs {
+  list-style: none;
+}
+.breadcrumbs__link {
+  font-size: 14px;
+  line-height: 36px;
+  color: rgba(0, 0, 0, 0.3);
+}
+.breadcrumbs__link:hover,
+.breadcrumbs__link:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+.breadcrumbs__link:active {
+  color: rgba(0, 0, 0, 0.1);
+}
+.breadcrumbs__link-current,
+.breadcrumbs__link-current:hover,
+.breadcrumbs__link-current:focus,
+.breadcrumbs__link-current:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+/*Фильтры*/
+.filters {
+  background-color: rgba(0, 0, 0, 0.08);
+  background-image: url("../img/filter-bg.jpg");
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+/*Переопределение размера шрифта класса font*/
+.filters__headline,
+.sort__headline {
+  font-size: 16px;
+}
+.filters__form-fieldset {
+  border: none;
+}
+/*Переопределение трансформации и межбуквенного интервала класса font*/
+.filters__form-legend {
+  text-transform: none;
+  letter-spacing: normal;
+}
+.filters__form-list {
+  list-style: none;
+}
+/*Для вставки иконок*/
+.filters__form-label {
+  position: relative;
+
+  font-size: 14px;
+  line-height: 40px;
+}
+.filters__form-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40px;
+
+  width: 23px;
+  height: 23px;
+  display: block;
+
+  background-color: transparent;
+  background-image: url("../img/checkbox-off.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*Класс для задания иконок для радио-кнопок*/
+.filters__form-radio::before {
+  width: 25px;
+  height: 25px;
+
+  background-image: url("../img/radio-off.svg");
+}
+.filters__form-label:hover::before,
+.filters__form-label:focus::before {
+  opacity: 0.6;
+}
+.filters__form-input:checked ~ .filters__form-label::before {
+  background-image: url("../img/checkbox-on.svg");
+}
+.filters__form-input:checked ~ .filters__form-radio::before {
+  background-image: url("../img/radio-on.svg");
+}
+/*Кнопка отправки формы. Убираем стоковый фон и рамку*/
+.filters__form-submit {
+  width: 200px;
+
+  background-color: transparent;
+  border: none;
+}
+/*Форма сортировки*/
+.sort {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+/*Убираем рамку у fieldset*/
+.sort__form-category {
+  border: none;
+}
+.sort__form-selections,
+.sort__form-sequence {
+  list-style: none;
+}
+.sort__form-label {
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.3);
+}
+/*Лэйблы для иконок (ПО ВОЗРАСТАЮЩЕЙ, ПО УБЫВАЮЩЕЙ) и их поведение*/
+.sequence-label {
+  width: 11px;
+  height: 10px;
+  display: inline-block;
+
+  background-color: transparent;
+  background-image: url("../img/icon-down-dir.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+}
+.top-down {
+  background-image: url("../img/icon-down-dir.svg");
+  transform: rotate(180deg);
+}
+.sort__form-label:hover,
+.sort__form-label:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+.sort__form-input:checked ~ .sort__form-label {
+  color: rgb(0, 0, 0);
+}
+.sequence-label:hover,
+.sequence-label:focus {
+  opacity: 0.4;
+}
+.sort__form-input:checked ~ .sequence-label {
+  opacity: 1;
+}
+/*Карточки товаров*/
+.product-cards__list {
+  list-style: none;
+}
+/*Переопределяет трансформацию текста и межбуквенный интервал класса font*/
+.product-cards__item-link {
+  text-transform: none;
+  letter-spacing: normal;
+}
+.product-cards__item-price {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: normal;
+  color: rgb(70, 70, 70);
+}
+/*Блок для изображения товара и поля с кнопками при наведении*/
+.product-cards__item-pic {
+  position: relative;
+
+  width: 360px;
+  height: 380px;
+}
+.product-cards__item-pic:hover > .pic-links,
+.product-cards__item-pic:focus > .pic-links {
+  visibility: visible;
+
+  cursor: pointer;
+}
+/*Кнопки появляющиеся при наведении на изображение товара*/
+.pic-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(238, 238, 238, 0.7);
+  visibility: hidden;
+}
+/*Ширина кнопок*/
+.pic-links__link {
+  width: 200px;
+  display: block;
+}
+/*Класс для задания поведения ссылки К СРАВНЕНИЮ*/
+.pic-link {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.pic-link:hover,
+.pic-link:focus {
+  color: rgb(0, 0, 0);
+}
+.pic-link:active {
+  color: rgba(0, 0, 0, 0.2);
+}
+/*Постраничная навигация*/
+.pagination__list {
+  list-style: none;
+
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.pagination__link {
+  color: rgba(0, 0, 0, 0.3);
+}
+.pagination__link:hover,
+.pagination__link:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+.pagination__link:active {
+  color: rgb(0, 0, 0);
+}
+/*Для кнопок НАЗАД и ВПЕРЕД*/
+.pagination__button:hover,
+.pagination__button:focus {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.pagination__button:active {
+  color: rgba(0, 0, 0, 0.3);
+
+  background-color: rgba(0, 0, 0, 0.08);
+}
+/*Футер*/
+.page-footer {
+  background-color: rgb(70, 70, 70);
+}
+/*Желтые иконки для меню (ВХОД, СРАВНИТЬ и КОРЗИНА)*/
+.user-nav__link-y::before {
+  background-image: url("../img/user-icon-y.svg");
+}
+.compare-link-y::before {
+  background-image: url("../img/compare-icon-y.svg");
+}
+.basket-link-y::before {
+  background-image: url("../img/cart-icon-y.svg");
+}
+/*Поведение текста меню (ВХОД, СРАВНИТЬ и КОРЗИНА) в футере*/
+.bottom-nav__link {
+  color: rgba(255, 255, 255, 0.7)
+}
+.bottom-nav__link:hover,
+.bottom-nav__link:focus {
+  color: rgb(255, 255, 255);
+}
+.bottom-nav__link:active {
+  color: rgba(255, 255, 255, 0.3)
+}
+/*Адрес и поведение ссылки на телефон*/
+.page-footer__address {
+  font-style: normal;
+  color: rgb(255, 255, 255);
+}
+.page-footer__address-phone {
+  color: rgb(255, 255, 255);
+}
+.page-footer__address-phone:hover,
+.page-footer__address-phone:focus {
+  color: rgba(255, 255, 255, 0.6);
+}
+.page-footer__address-phone:active {
+  color: rgba(255, 255, 255, 0.3)
+}
+/*Задание белого цвета для меню (ДОСТАВКА, ГАРАНТИЯ и КОНТАКТЫ)*/
+.bottom-service__link {
+  color: rgb(255, 255, 255);
+}
+.bottom-service__link:hover,
+.bottom-service__link:focus {
+  color: rgba(255, 255, 255, 0.6);
+}
+.bottom-service__link:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+/*Меню социалок*/
+.page-footer__social {
+  list-style: none;
+}
+/*Общие правила для кнопок*/
+.page-footer__social-link {
+  width: 32px;
+  height: 32px;
+  display: block;
+
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+/*Изображения для кнопок*/
+.page-footer__social-item:nth-child(1) .page-footer__social-link {
+  background-image: url("../img/fb-icon.svg");
+}
+.page-footer__social-item:nth-child(2) .page-footer__social-link {
+  background-image: url("../img/inst-icon.svg");
+}
+.page-footer__social-item:nth-child(3) .page-footer__social-link {
+  background-image: url("../img/tw-icon.svg");
+}
+.page-footer__social-link:hover,
+.page-footer__social-link:focus {
+  opacity: 0.6;
+}
+.page-footer__social-link:active {
+  opacity: 0.1;
+}
+/*Кнопка HTMLacademy*/
+.page-footer__copyright {
+  width: 27px;
+  height: 35px;
+  display: block;
+
+  background-color: transparent;
+  background-image: url("../img/html-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+.page-footer__copyright:hover,
+.page-footer__copyright:focus {
+  opacity: 0.6;
+}
+.page-footer__copyright:active {
+  opacity: 0.3;
+}
+/*Модальное окно СВЯЗАТЬСЯ С НАМИ*/
+.modal-connect__form-label {
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 18px;
+}
+/*Стили для подписей полей формы*/
+.modal-connect__form-input::-webkit-input-placeholder {
+  color: rgba(70, 70, 70, 0.4);
+  opacity: 1;
+}
+.modal-connect__form-input:hover::-webkit-input-placeholder {
+  color: rgba(70, 70, 70, 0.4);
+}
+.modal-connect__form-input:focus::-webkit-input-placeholder {
+  color: rgb(70, 70, 70);
+}
+.modal-connect__form-input::-moz-placeholder {
+  color: rgba(70, 70, 70, 0.4);
+  opacity: 1;
+}
+.modal-connect__form-input:hover::-moz-placeholder {
+  color: rgba(70, 70, 70, 0.4);
+}
+.modal-connect__form-input:focus::-moz-placeholder {
+  color: rgb(70, 70, 70);
+}
+/*Стили для полей формы*/
+.modal-connect__form-input {
+  font: inherit;
+  font-weight: normal;
+  color: rgb(0, 0, 0);
+
+  background-color: rgba(229, 229, 229, 0.5);
+  border: none;
+}
+.modal-connect__form-input:hover {
+  background-color: rgba(229, 229, 229, 0.8)
+}
+.modal-connect__form-input:focus {
+  background-color: transparent;
+  border: 3px solid rgb(240, 197, 46);
+}
+/*Кнопка отправки формы СВЯЗАТЬСЯ С НАМИ*/
+.modal-connect__submit {
+  width: 200px;
+
+  background-color: transparent;
+  border: none;
+}
+/*Кнопка закрытия модального окна*/
+.modal-close {
+  width: 55px;
+  height: 55px;
+  display: block;
+
+  background-color: transparent;
+  background-image: url("../img/modal-close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  opacity: 0.5;
+}
+.modal-close:hover,
+.modal-close:focus {
+  opacity: 1;
+}
+.modal-close:active {
+  opacity: 0.3;
+}
