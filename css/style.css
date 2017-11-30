@@ -1355,6 +1355,21 @@
   justify-content: space-between;
   margin-bottom: 50px;
 }
+.new-mark::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: 27px;
+  z-index: 1;
+
+  width: 60px;
+  height: 61px;
+  display: block;
+
+  background-image: url("../img/new-icon.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
 .product-cards__item-text {
   display: flex;
   justify-content: space-between;
@@ -1404,12 +1419,15 @@
 /*Кнопки появляющиеся при наведении на изображение товара*/
 .pic-links {
   position: absolute;
-  top: 43px;
+  /* top: 43px; */
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 1;
 
+  width: 360px;
+  height: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1422,6 +1440,9 @@
 .pic-links__link {
   width: 200px;
   display: block;
+}
+.pic-link-top {
+  margin-top: 43px;
 }
 /*Класс для задания поведения ссылки К СРАВНЕНИЮ*/
 .pic-link {
