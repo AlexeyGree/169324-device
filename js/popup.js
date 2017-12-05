@@ -8,8 +8,7 @@ var yname = popup.querySelector("[name=your-name]");
 var yemail = popup.querySelector("[name=your-email]");
 var ytext = popup.querySelector("[name=your-letter]");
 
-// var str_name = localStorage.getItem("yname");
-// var str_email = localStorage.getItem("yemail"); //IE не отрабатывает getItem из-за этого не работает поп-ап
+//IE не отрабатывает getItem из-за этого не работает поп-ап перенес в конец кода
 
 link.addEventListener("click", function (evt) {
   evt.preventDefault();
@@ -73,3 +72,5 @@ window.addEventListener("keydown", function (evt) {
     }
   }
 });
+var str_name = localStorage.getItem("yname");
+var str_email = localStorage.getItem("yemail");
