@@ -40,6 +40,21 @@ form.addEventListener("submit", function (evt) {
     localStorage.setItem("yname", yname.value);
     localStorage.setItem("yemail", yemail.value);
   }
+  if (!yname.value) {
+    yname.classList.add("invalid__input");
+  } else {
+    yname.classList.remove("invalid__input");
+  }
+  if (!yemail.value) {
+    yemail.classList.add("invalid__input");
+  } else {
+    yemail.classList.remove("invalid__input");
+  }
+  if (!ytext.value) {
+    ytext.classList.add("invalid__input");
+  } else {
+    ytext.classList.remove("invalid__input");
+  }
 });
 
 window.addEventListener("keydown", function (evt) {

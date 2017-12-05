@@ -1855,6 +1855,12 @@
     opacity: 1;
   }
 }
+
+.invalid__input {
+  color: rgba(70, 70, 70, 0.4);
+
+  background-color: rgba(237, 181, 181, 0.5);
+}
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
 input[type="radio"].visually-hidden {
