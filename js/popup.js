@@ -34,6 +34,7 @@ close.addEventListener("click", function (evt) {
 });
 
 form.addEventListener("submit", function (evt) {
+  evt.preventDefault();
   if (!yname.value || !yemail.value) {
     evt.preventDefault();
   } else {
