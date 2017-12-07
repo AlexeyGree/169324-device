@@ -24,7 +24,7 @@
 }
 .page {
   width: 100%;
-  min-width: 1440px;
+  min-width: 1200px;
 
   margin: 0;
   padding: 0;
@@ -1756,7 +1756,7 @@
 
   font: inherit;
   font-weight: normal;
-  color: rgb(0, 0, 0);
+  color: rgba(70, 70, 70, 0.4);
 
   background-color: rgba(229, 229, 229, 0.5);
   border: none;
@@ -1765,16 +1765,11 @@
   background-color: rgba(229, 229, 229, 0.8)
 }
 .modal-connect__form-input:focus {
+  color: rgb(0, 0, 0);
+
   background-color: transparent;
   outline: 3px solid rgb(240, 197, 46);
 }
-/*Поведение невалидного значения!!*/
-/* .modal-connect__form-input:required:invalid {
-  color: rgba(70, 70, 70, 0.4);
-
-  background-color: rgb(237, 181, 181);
-} */
-/*Кнопка отправки формы СВЯЗАТЬСЯ С НАМИ*/
 .modal-connect__submit {
   width: 200px;
 
