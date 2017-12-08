@@ -297,7 +297,7 @@
 .page-nav__item {
   position: relative;
 }
-.page-nav__sub-bg {
+/* .page-nav__sub-bg {
   position: absolute;
   top: 27px;
   left: -60px;
@@ -319,17 +319,48 @@
   justify-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
+} */
+.sub-nav {
+  position: absolute;
+  top: 27px;
+  left: -60px;
+
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 1040px;
+  height: 108px;
+  padding-top: 25px;
+  padding-right: 60px;
+  padding-bottom: 33px;
+  padding-left: 60px;
+  margin: 0;
+
+  background-color: rgb(247, 226, 150);
 }
+.sub-nav__item:nth-child(1) {
+  margin-right: 62px;
+}
+.sub-nav__item:nth-child(4) {
+  margin-right: 77px;
+}
+
 .sub-nav__item:last-child {
   height: 38px;
 }
-.page-nav__item:hover > .page-nav__sub-bg,
-.page-nav__item:focus > .page-nav__sub-bg {
-  display: block;
+.page-nav__item:hover > .sub-nav,
+.page-nav__item:focus > .sub-nav {
+  display: flex;
 }
 /*Основная навигация*/
 .page-nav__link {
   position: relative;
+}
+.page-nav__link:focus + .sub-nav {
+  display: flex;
 }
 /*Иконка для ссылки каталог товаров*/
 .page-nav__link::before {
@@ -480,6 +511,7 @@
   width: 12px;
   height: 12px;
   display: inline-block;
+  vertical-align: middle;
 
   background-color: transparent;
   background-image: url("../img/slider-button.svg");
@@ -556,7 +588,9 @@
   letter-spacing: 0.5px;
 }
 .hit-product__slide-desc {
+  height: 60px;
   margin-bottom: 43px;
+  overflow: hidden;
 
   letter-spacing: 0.22px;
 }
@@ -647,6 +681,7 @@
 /*Меню популярных разделов*/
 .popular-nav__list {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
   justify-content: space-between;
@@ -826,6 +861,8 @@
 }
 .tab-service__item-desc {
   width: 440px;
+  max-height: 150px;
+  overflow: hidden;
   letter-spacing: 0.25px;
 }
 .tab-service__item-img {
@@ -1083,13 +1120,18 @@
 }
 .sort__form-selections {
   width: 286px;
+  flex-wrap: wrap;
 }
 .sort__form-sequence {
   width: 42px;
 }
+.sort__form-option {
+  flex-basis: 28%;
+}
 .sort__form-label {
   font-size: 14px;
   font-weight: 400;
+  white-space: nowrap;
   color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
@@ -1098,6 +1140,7 @@
   width: 11px;
   height: 10px;
   display: inline-block;
+  vertical-align: middle;
 
   background-color: transparent;
   background-image: url("../img/icon-down-dir.svg");
@@ -1213,11 +1256,12 @@
 }
 .filters__range-button:hover::before,
 .filters__range-button:active::before {
-  top: -18px;
+  top: -19px;
   width: 22px;
-  height: 25px;
+  height: 26px;
 
   background-image: url("../img/filter-button-active.svg");
+  background-size: 100%;
 }
 .filters__range-button:first-of-type:hover::before,
 .filters__range-button:first-of-type:active::before {
@@ -1286,6 +1330,12 @@
 .filters__form-input:checked ~ .filters__form-radio::before {
   background-image: url("../img/radio-on.svg");
   left: -44px;
+}
+.filters__form-input:disabled ~ .filters__form-label {
+  color: rgb(166, 166, 166);
+}
+.filters__form-input:disabled ~ .filters__form-label::before {
+  opacity: 0.25;
 }
 /*Кнопка отправки формы. Убираем стоковый фон и рамку*/
 .filters__form-submit {
@@ -1615,6 +1665,7 @@
 .page-footer__social {
   width: 160px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding: 0;
@@ -1622,6 +1673,10 @@
   margin-right: 473px;
 
   list-style: none;
+}
+.page-footer__social-item {
+  flex-basis: 25%;
+  margin-bottom: 10px;
 }
 /*Общие правила для кнопок*/
 .page-footer__social-link {
